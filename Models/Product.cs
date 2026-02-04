@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProductCatalogV2.Models
 {
@@ -7,16 +8,29 @@ namespace ProductCatalogV2.Models
     public class Product
     {
         public int Id { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Product Name is required.")]
+        [Display(Name = "Product Name")]
         public string? ProductName { get; set; }
+
         [Required]
+        [DataType(DataType.Currency)]
+        [Display(Name = "Price")]
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal ProductPrice { get; set; }
+
+        [Display(Name = "Image")]
         public string? ImageUrl { get; set; }
+
+        [Display(Name = "Description")]
         public string? Description { get; set; }
 
-        // Foreign Key
+
+        [Display(Name = "Category")]
+        [ForeignKey("Category")]
         public int CategoryId { get; set; }
-        // Navigation property
+
+        [Display(Name = "Category Info")]
         public Category? Category { get; set; }
     }
 }
