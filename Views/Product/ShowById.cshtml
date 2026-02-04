@@ -1,0 +1,31 @@
+@model ProductCatalogV2.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="card-title mb-0">@Model.ProductName</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 text-center mb-3">
+                    <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.ProductName" />
+                </div>
+                <div class="col-md-8">
+                    <h4 class="text-success">@Model.ProductPrice.ToString("C")</h4>
+                    <p class="text-muted">Product ID: @Model.Id</p>
+                    <hr />
+                    <h5>Description</h5>
+                    <p>@Model.Description</p>
+                    
+                    <div class="mt-4">
+                        <a asp-action="ShowAll" class="btn btn-secondary">Back to All Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
