@@ -9,8 +9,6 @@ namespace ProductCatalogV2.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=Data/mydb.db;");
-
-            //base.OnConfiguring(optionsBuilder);
         }
 
         public DbSet<Product> Products { get; set; }

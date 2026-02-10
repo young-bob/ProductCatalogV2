@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductCatalogV2.BusinessLogic;
 using ProductCatalogV2.Models;
-using System.Threading.Tasks;
 
 namespace ProductCatalogV2.Controllers
 {
